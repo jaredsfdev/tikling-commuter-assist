@@ -1,0 +1,6 @@
+{
+  "name": "Tikling - Commuter Route Planner",
+  "description": "A smart, friendly commuter route planner guided by the Tikling bird mascot.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

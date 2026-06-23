@@ -1,0 +1,203 @@
+@import "tailwindcss";
+
+@theme {
+  /* Override default slate to match cozy warm background & bird tones */
+  --color-slate-50: #fbfbf8;       /* Very warm clean paper background */
+  --color-slate-100: #f2ece3;      /* Cozy soft warm beige border & input fills */
+  --color-slate-200: #e5dacb;      /* Hover state borders & highlights */
+  --color-slate-300: #caa07a;      /* Medium warm clay accent */
+  --color-slate-400: #715e51;      /* Enhanced contrast neutral warm text (WCAG-AA matching #fbfbf8) */
+  --color-slate-500: #57483e;      /* Enhanced secondary text contrast */
+  --color-slate-700: #55443a;      /* Strong warm text */
+  --color-slate-800: #2c2520;      /* High contrast warm text */
+  --color-slate-900: #283641;      /* Deep brand slate charcoal for contrast text */
+
+  /* Redefine indigo to utilize Tikling's terracotta rust and soft teal accents */
+  --color-indigo-50: #faf7f2;      /* Cozy light clay-tea bg */
+  --color-indigo-100: #f3ecd9;     /* Cream badge highlighting */
+  --color-indigo-200: #eddca8;     /* Warm highlight shadow */
+  --color-indigo-300: #dfaa80;     /* Light terracotta accent */
+  --color-indigo-400: #5398a0;     /* Tikling Messenger Bag Teal */
+  --color-indigo-500: #46868e;     /* Tikling Teal Hover/Accent */
+  --color-indigo-600: #cd5f39;     /* Tikling Bezel Rust/Terracotta primary */
+  --color-indigo-605: #cd5f39;     /* Fallback label */
+  --color-indigo-700: #b54a25;     /* Deeper Terracotta for contrast click states */
+  --color-indigo-800: #283641;     /* Charcoal slate brand heading color */
+  --color-indigo-900: #1d272f;     /* Deep charcoal card bodies */
+
+  /* Override accent hues for warnings and errors */
+  --color-amber-400: #fbbd41;      /* Tikling Golden Compass needle yellow */
+  --color-amber-500: #f0ad35;
+  --color-sky-50: #eff8fa;
+  --color-sky-100: #e0f2f5;
+  --color-sky-200: #b9e3e9;
+  --color-sky-500: #5398a0;        /* Blue-sky elements mapped to beautiful teal */
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  background-color: #f7f4ee !important; /* Forces the beautiful cozy warm background of the mascot sheet globally */
+  color: #2c2520;
+}
+
+body.tiki-night-active {
+  background-color: #0b0f19 !important;
+  color: #f1f5f9;
+}
+
+/* Tiki Night Mode deep indigos and dark slates overrides */
+.tiki-night {
+  background-color: #0b0f19 !important;
+  color: #f1f5f9 !important;
+}
+
+/* Base sections and mockups */
+.tiki-night .bg-white {
+  background-color: #111827 !important; /* Deep dark slate-900 / dark indigo */
+  color: #f1f5f9 !important;
+  border-color: #374151 !important;
+}
+
+.tiki-night .bg-slate-50 {
+  background-color: #0b0f19 !important; /* Night background */
+  color: #f1f5f9 !important;
+}
+
+.tiki-night .bg-slate-100 {
+  background-color: #1f2937 !important; /* Slate-800 background */
+  border-color: #374151 !important;
+}
+
+.tiki-night .pt-7.bg-white {
+  background-color: #0f172a !important; /* Deep Slate Blue */
+  color: #f1f5f9 !important;
+}
+
+.tiki-night .border-slate-150,
+.tiki-night .border-slate-100,
+.tiki-night .border-slate-200,
+.tiki-night .border-light-100 {
+  border-color: #1e293b !important; /* Slate-800 borders */
+}
+
+/* High contrast headings and labels */
+.tiki-night .text-slate-900,
+.tiki-night .text-slate-800,
+.tiki-night .text-slate-700,
+.tiki-night .text-indigo-800 {
+  color: #f8fafc !important; /* High contrast off-white */
+}
+
+/* Mid-contrast description paragraphs and metadata */
+.tiki-night .text-slate-600,
+.tiki-night .text-slate-500,
+.tiki-night .text-slate-400,
+.tiki-night .text-indigo-600:not(button):not(.font-semibold) {
+  color: #cbd5e1 !important; /* Clean slate-350 */
+}
+
+.tiki-night input,
+.tiki-night select {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+  color: #f8fafc !important;
+}
+
+.tiki-night input::placeholder {
+  color: #64748b !important;
+}
+
+/* Cards & listings */
+.tiki-night .bg-white.border.rounded-3xl,
+.tiki-night .bg-white.border-slate-150,
+.tiki-night .bg-white.hover\:bg-slate-50\/50,
+.tiki-night .bg-white.border-slate-100 {
+  background-color: #111827 !important; /* Rich Dark Charcoal */
+  border-color: #1f2937 !important; /* Dark slate border */
+}
+
+.tiki-night .bg-white.hover\:bg-slate-50\/50:hover {
+  background-color: #1f2937 !important;
+}
+
+.tiki-night .divide-slate-100 > * {
+  border-color: #1f2937 !important;
+}
+
+/* Ensure secondary action items remain clickable & distinct */
+.tiki-night .bg-slate-50.border-slate-100 {
+  background-color: #0b0f19/30 !important;
+  border-color: #1f2937 !important;
+}
+
+/* Theme-specific card and badge colors under night mode */
+.tiki-night .bg-indigo-50,
+.tiki-night .bg-indigo-50\/50,
+.tiki-night .bg-indigo-50\/70,
+.tiki-night .bg-indigo-50\/40 {
+  background-color: #1e1b4b !important;
+  border-color: #312e81 !important;
+  color: #c7d2fe !important;
+}
+
+.tiki-night .bg-rose-50,
+.tiki-night .bg-rose-50\/50 {
+  background-color: #4c0519 !important;
+  border-color: #881337 !important;
+  color: #fecdd3 !important;
+}
+
+.tiki-night .bg-amber-50,
+.tiki-night .bg-amber-50\/50 {
+  background-color: #451a03 !important;
+  border-color: #78350f !important;
+  color: #fef3c7 !important;
+}
+
+.tiki-night .bg-emerald-50,
+.tiki-night .bg-emerald-50\/50 {
+  background-color: #022c22 !important;
+  border-color: #064e3b !important;
+  color: #a7f3d0 !important;
+}
+
+/* Color Accent Overrides under Low-Light navigation */
+.tiki-night .text-indigo-600,
+.tiki-night .text-indigo-500,
+.tiki-night .text-indigo-750,
+.tiki-night .text-indigo-950 {
+  color: #818cf8 !important;
+}
+
+.tiki-night .text-rose-600,
+.tiki-night .text-rose-500 {
+  color: #fb7185 !important;
+}
+
+.tiki-night .text-amber-600,
+.tiki-night .text-amber-500 {
+  color: #fbbf24 !important;
+}
+
+.tiki-night .text-emerald-600,
+.tiki-night .text-emerald-500 {
+  color: #34d399 !important;
+}
+
+.tiki-night h1,
+.tiki-night h2,
+.tiki-night h3,
+.tiki-night h4 {
+  color: #f8fafc !important;
+}
+
+.tiki-night .bg-[#fcf9f2] {
+  background-color: #1e1e38 !important;
+  border-color: #3c3c5e !important;
+}
+
+.tiki-night .text-slate-600.italic {
+  color: #d1d5db !important;
+}
+
