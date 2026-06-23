@@ -47,6 +47,7 @@ import RouteCard from './components/RouteCard';
 import StatusController from './components/StatusController';
 import GtfsScheduleBrowser from './components/GtfsScheduleBrowser';
 import WeatherOutlook from './components/WeatherOutlook';
+import HeroBanner from './assets/images/tikling_banner_1781772207983.jpg';
 
 // Hardcoded default community and preset routes matching the design specification
 const DEFAULT_ROUTES: CommuterRoute[] = [
