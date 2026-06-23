@@ -48,7 +48,10 @@ import StatusController from './components/StatusController';
 import GtfsScheduleBrowser from './components/GtfsScheduleBrowser';
 import WeatherOutlook from './components/WeatherOutlook';
 import HeroBanner from './assets/images/tikling_banner_1781772207983.jpg';
-
+import Tikling from './assets/images/tikling_avatar_1781772190998.jpg'
+import Pio from './assets/images/pio_mascot_avatar_1781771380237.jpg'
+import Tarshier from './assets/images/tarsier_mascot_avatar_1782175325934.jpg'
+import Carabao from './assets/images/carabao_mascot_avatar_1782175343853.jpg'
 // Hardcoded default community and preset routes matching the design specification
 const DEFAULT_ROUTES: CommuterRoute[] = [
   {
@@ -176,28 +179,28 @@ export default function App() {
       name: 'Tiki',
       species: 'Tikling Bird',
       description: 'Your default wetlands guide! Sprightly and loves high-altitude lookouts.',
-      src: '/src/assets/images/tikling_avatar_1781772190998.jpg'
+      src: Tikling
     },
     {
       id: 'pio',
       name: 'Pio',
       species: 'Golden Chick',
       description: 'Bright and energetic! Thrives on analyzing speedy shortcuts and bike lanes.',
-      src: '/src/assets/images/pio_mascot_avatar_1781771380237.jpg'
+      src: Pio
     },
     {
       id: 'tarsier',
       name: 'Tarsi',
       species: 'Bohol Tarsier',
       description: 'Wide-eyed forest pathfinder. Super-friendly and specialized in detailed mapping.',
-      src: '/src/assets/images/tarsier_mascot_avatar_1782175325934.jpg'
+      src: Tarshier
     },
     {
       id: 'carabao',
       name: 'Cara',
       species: 'Water Buffalo',
       description: 'Dependable and strong! Represents steady pace and zero-carbon walking routes.',
-      src: '/src/assets/images/carabao_mascot_avatar_1782175343853.jpg'
+      src: Carabao
     }
   ];
 
