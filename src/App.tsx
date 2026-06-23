@@ -637,7 +637,7 @@ export default function App() {
   };
 
   // Asset CDN Fallback placeholders matching AI generated file name structure
-  const HERO_BANNER_IMG = '/src/assets/images/tikling_banner_1781772207983.jpg';
+  const HERO_BANNER_IMG = HeroBanner;
   const MASCOT_AVATAR_IMG = activeMascot.src;
 
   const displayRoutes = getDisplayRoutes();
