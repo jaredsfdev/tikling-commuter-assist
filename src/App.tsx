@@ -49,7 +49,7 @@ import RouteCard from './components/RouteCard';
 import StatusController from './components/StatusController';
 import GtfsScheduleBrowser from './components/GtfsScheduleBrowser';
 import WeatherOutlook from './components/WeatherOutlook';
-
+import HeroBannerImg from '/src/assets/images/tikling_banner_1781772207983.jpg';
 // Hardcoded default community and preset routes matching the design specification
 const DEFAULT_ROUTES: CommuterRoute[] = [
   {
@@ -638,7 +638,7 @@ export default function App() {
   };
 
   // Asset CDN Fallback placeholders matching AI generated file name structure
-  const HERO_BANNER_IMG = '/src/assets/images/tikling_banner_1781772207983.jpg';
+  const HERO_BANNER_IMG = HeroBannerImg;
   const MASCOT_AVATAR_IMG = activeMascot.src;
 
   const displayRoutes = getDisplayRoutes();
