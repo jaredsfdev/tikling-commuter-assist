@@ -47,11 +47,7 @@ import RouteCard from './components/RouteCard';
 import StatusController from './components/StatusController';
 import GtfsScheduleBrowser from './components/GtfsScheduleBrowser';
 import WeatherOutlook from './components/WeatherOutlook';
-import HeroBanner from './assets/images/tikling_banner_1781772207983.jpg';
-import Tikling from './assets/images/tikling_avatar_1781772190998.jpg'
-import Pio from './assets/images/pio_mascot_avatar_1781771380237.jpg'
-import Tarshier from './assets/images/tarsier_mascot_avatar_1782175325934.jpg'
-import Carabao from './assets/images/carabao_mascot_avatar_1782175343853.jpg'
+
 // Hardcoded default community and preset routes matching the design specification
 const DEFAULT_ROUTES: CommuterRoute[] = [
   {
@@ -179,28 +175,28 @@ export default function App() {
       name: 'Tiki',
       species: 'Tikling Bird',
       description: 'Your default wetlands guide! Sprightly and loves high-altitude lookouts.',
-      src: Tikling
+      src: '/src/assets/images/tikling_avatar_1781772190998.jpg'
     },
     {
       id: 'pio',
       name: 'Pio',
       species: 'Golden Chick',
       description: 'Bright and energetic! Thrives on analyzing speedy shortcuts and bike lanes.',
-      src: Pio
+      src: '/src/assets/images/pio_mascot_avatar_1781771380237.jpg'
     },
     {
       id: 'tarsier',
       name: 'Tarsi',
       species: 'Bohol Tarsier',
       description: 'Wide-eyed forest pathfinder. Super-friendly and specialized in detailed mapping.',
-      src: Tarshier
+      src: '/src/assets/images/tarsier_mascot_avatar_1782175325934.jpg'
     },
     {
       id: 'carabao',
       name: 'Cara',
       species: 'Water Buffalo',
       description: 'Dependable and strong! Represents steady pace and zero-carbon walking routes.',
-      src: Carabao
+      src: '/src/assets/images/carabao_mascot_avatar_1782175343853.jpg'
     }
   ];
 
@@ -640,13 +636,13 @@ export default function App() {
   };
 
   // Asset CDN Fallback placeholders matching AI generated file name structure
-  const HERO_BANNER_IMG = HeroBanner;
+  const HERO_BANNER_IMG = '/src/assets/images/tikling_banner_1781772207983.jpg';
   const MASCOT_AVATAR_IMG = activeMascot.src;
 
   const displayRoutes = getDisplayRoutes();
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 flex flex-col items-center justify-start p-0 md:p-6 lg:p-10 font-sans ${isTikiNightMode ? 'bg-[#0f172a] text-slate-200 tiki-night' : 'bg-slate-50 text-slate-800'}`}>
+    <div className={`min-h-screen transition-colors duration-300 flex flex-col items-center justify-start p-0 md:p-6 lg:p-10 font-sans ${isTikiNightMode ? 'bg-[#0b0f19] text-slate-200 tiki-night' : 'bg-[#f7f4ee] text-slate-800'}`}>
       {/* Absolute Header Ribbon */}
       <header className="hidden md:flex w-full max-w-6xl mx-auto mb-4 px-4 pt-4 md:px-0 items-center justify-between">
         <div className="flex items-center gap-3">
@@ -671,27 +667,149 @@ export default function App() {
         </div>
       </header>
 
-      {/* Main Container: Centered App container (Mockup Device style) with sandbox hidden */}
-      <div className="w-full max-w-5xl mx-auto mb-16">
+      {/* Main Container: Clean, fully responsive web and mobile workspace */}
+      <div className="w-full max-w-6xl mx-auto md:mb-10 mb-0 px-0 md:px-4">
         {/* Main App Canvas */}
-        <div className={`bg-slate-100 border-4 border-slate-200 shadow-2xl rounded-[44px] overflow-hidden flex flex-col relative min-h-[780px] w-full transition-colors duration-300 ${isTikiNightMode ? 'tiki-night' : ''}`}>
-          {/* Top Status Bar Notch */}
-          <div className="absolute top-0 inset-x-0 h-7 bg-slate-950 flex items-center justify-between px-6 text-[11px] text-slate-400 font-sans tracking-wide z-40 select-none">
-            <div className="font-bold">Tikling Sim</div>
-            <div className="w-24 h-4 bg-slate-900 rounded-b-xl mx-auto absolute inset-x-0 top-0 border-x border-b border-slate-800" />
-            <div className="flex items-center gap-1.5 font-bold">
-              <span>{isOffline ? 'Offline' : '5G'}</span>
-              <span className={`w-2 h-2 rounded-full ${isOffline ? 'bg-amber-400' : 'bg-indigo-400'}`} />
+        <div className={`bg-white border-0 md:border border-slate-150 shadow-lg rounded-none md:rounded-3xl overflow-hidden flex flex-col lg:grid lg:grid-cols-[280px_1fr] lg:h-[820px] relative min-h-[780px] w-full transition-colors duration-300 ${isTikiNightMode ? 'tiki-night bg-slate-900 border-slate-800' : 'bg-white'}`}>
+          
+          {/* Persistent Desktop Left Sidebar (Visible only on lg displays) */}
+          <aside className={`hidden lg:flex flex-col h-full border-r shrink-0 select-none overflow-y-auto text-left transition-colors duration-300 ${isTikiNightMode ? 'bg-[#0f172a] text-slate-200 border-slate-800' : 'bg-slate-900 text-white border-slate-800'}`}>
+            {/* Sidebar Branding Header */}
+            <div className="p-6 border-b border-slate-800 flex items-center gap-3 shrink-0">
+              <TiklingMascot size="sm" animated={true} />
+              <div>
+                <h2 className="font-sans font-bold text-sm leading-tight text-white">Tikling Assistant</h2>
+                <p className="text-[9px] text-indigo-400 font-mono tracking-wider mt-0.5">METEOROLOGICAL TRANSIT</p>
+              </div>
             </div>
-          </div>
 
-          {/* Actual Mobile Header Screen */}
-          <div className="pt-7 bg-white flex flex-col flex-1 pb-20">
+            {/* Navigation and Support Items */}
+            <div className="p-5 flex flex-col gap-5 flex-grow overflow-y-auto">
+              <div className="flex flex-col gap-1.5 shrink-0">
+                <span className="text-[9px] font-sans font-bold text-slate-500 uppercase tracking-wider pl-2 mb-1">
+                  Primary Views
+                </span>
+                
+                <button
+                  type="button"
+                  onClick={() => setActiveTab('home')}
+                  className={`w-full py-2.5 px-3.5 rounded-xl text-xs font-semibold font-sans flex items-center gap-3 transition-all cursor-pointer border-0 text-left ${
+                    activeTab === 'home'
+                      ? 'bg-indigo-600 text-white font-extrabold shadow-sm'
+                      : 'bg-transparent text-slate-300 hover:text-white hover:bg-slate-800/60'
+                  }`}
+                >
+                  <Home size={15} />
+                  <span>Dashboard Home</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setActiveTab('routes')}
+                  className={`w-full py-2.5 px-3.5 rounded-xl text-xs font-semibold font-sans flex items-center gap-3 transition-all cursor-pointer border-0 text-left ${
+                    activeTab === 'routes'
+                      ? 'bg-indigo-600 text-white font-extrabold shadow-sm'
+                      : 'bg-transparent text-slate-300 hover:text-white hover:bg-slate-800/60'
+                  }`}
+                >
+                  <RouteIcon size={15} />
+                  <span>Corridor Designer</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setActiveTab('community')}
+                  className={`w-full py-2.5 px-3.5 rounded-xl text-xs font-semibold font-sans flex items-center gap-3 transition-all cursor-pointer border-0 text-left ${
+                    activeTab === 'community'
+                      ? 'bg-indigo-600 text-white font-extrabold shadow-sm'
+                      : 'bg-transparent text-slate-300 hover:text-white hover:bg-slate-800/60'
+                  }`}
+                >
+                  <Users size={15} />
+                  <span>Community Paths</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setActiveTab('profile')}
+                  className={`w-full py-2.5 px-3.5 rounded-xl text-xs font-semibold font-sans flex items-center gap-3 transition-all cursor-pointer border-0 text-left ${
+                    activeTab === 'profile'
+                      ? 'bg-indigo-600 text-white font-extrabold shadow-sm'
+                      : 'bg-transparent text-slate-300 hover:text-white hover:bg-slate-800/60'
+                  }`}
+                >
+                  <User size={15} />
+                  <span>User Profile</span>
+                </button>
+              </div>
+
+              {/* Eco Savings Stat Widget */}
+              <div className="bg-slate-800/40 border border-slate-800 p-4 rounded-2xl shrink-0">
+                <div className="flex items-center gap-2 text-indigo-400">
+                  <Sparkles size={14} className="animate-pulse" />
+                  <span className="text-[11px] font-sans font-bold">Eco-Savings Badge</span>
+                </div>
+                <p className="text-slate-400 font-sans text-[10.5px] mt-1.5 leading-relaxed">
+                  Active smart-transit mapping contribution is live.
+                </p>
+                <div className="flex gap-2.5 mt-3">
+                  <div className="flex-1 bg-slate-900/60 p-2 rounded-xl text-center border border-slate-800/75">
+                    <span className="text-[8px] text-slate-500 font-sans block">Carbon Saved</span>
+                    <span className="text-[11px] font-sans font-bold text-emerald-400">12.4 Kg</span>
+                  </div>
+                  <div className="flex-1 bg-slate-900/60 p-2 rounded-xl text-center border border-slate-800/75">
+                    <span className="text-[8px] text-slate-500 font-sans block">Level Status</span>
+                    <span className="text-[11px] font-sans font-bold text-indigo-300">Tier 3</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Support Me Section in Sidebar as requested */}
+              <div className="bg-amber-950/20 border border-amber-900/40 p-4 rounded-2xl shrink-0">
+                <div className="flex items-center gap-2 text-amber-400">
+                  <Heart size={14} className="fill-amber-400/20 animate-pulse" />
+                  <span className="text-[11px] font-sans font-bold">Support Me</span>
+                </div>
+                <p className="text-slate-400 font-sans text-[10.5px] mt-1.5 leading-relaxed">
+                  If Tikling Assistant has made your route planning easier, please consider supporting the ongoing development.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setTiklingAlert({
+                      show: true,
+                      title: 'Thank You for Supporting! 💖',
+                      message: 'Your support is deeply appreciated! Connecting with jaredsfdev keeps the server running and updates rolling out.',
+                      type: 'success'
+                    });
+                  }}
+                  className="mt-3 w-full py-2 bg-amber-500 hover:bg-amber-600 text-white font-sans font-bold rounded-xl text-[10px] shadow-sm cursor-pointer text-center border-0 transition-colors"
+                >
+                  Buy Me a Coffee ☕
+                </button>
+              </div>
+            </div>
+
+            {/* Sidebar Footer credit line */}
+            <div className="p-4 border-t border-slate-800 bg-slate-950/40 text-[10px] text-slate-500 font-sans flex flex-col gap-1.5 shrink-0">
+              <div className="flex items-center justify-between font-mono text-[9px]">
+                <span>Tiki Version 2.8</span>
+                <span className="text-indigo-400 font-bold">Mascot Protected</span>
+              </div>
+              <div className="border-t border-slate-800/60 pt-2 flex items-center justify-between text-[10px]">
+                <span className="text-slate-400 font-medium">Developed by</span>
+                <span className="text-indigo-400 font-extrabold">jaredsfdev</span>
+              </div>
+            </div>
+          </aside>
+
+          {/* Actual Content Screen */}
+          <div className={`pt-0 flex flex-col flex-grow pb-20 lg:pb-0 ${isTikiNightMode ? 'bg-[#0f172a]' : 'bg-white'} lg:h-[820px] lg:overflow-hidden relative`}>
             {/* Nav Header Row */}
-            <div className="px-5 py-3.5 flex items-center justify-between border-b border-light-100 bg-white relative z-30 shrink-0">
+            <div className={`px-5 py-3.5 flex items-center justify-between border-b border-slate-100 relative z-30 shrink-0 ${isTikiNightMode ? 'bg-slate-900 border-slate-800 text-white' : 'bg-white'}`}>
               <button
                 onClick={() => setIsSidebarOpen(true)}
-                className="text-slate-700 hover:text-indigo-600 p-2 rounded-xl bg-slate-50 border border-slate-100 transition-colors cursor-pointer"
+                className="lg:hidden text-slate-700 hover:text-indigo-600 p-2 rounded-xl bg-slate-50 border border-slate-100 transition-colors cursor-pointer"
                 title="Open Tiki sidebar menu"
               >
                 <Menu size={18} />
@@ -1789,7 +1907,7 @@ export default function App() {
             </main>
 
             {/* Smart Phone Navigation Tab Bar (Visual Floating design matching bottom rail) */}
-            <nav className="absolute bottom-0 inset-x-0 bg-white/95 backdrop-blur-md border-t border-slate-100 py-2.5 px-4 flex items-center justify-around z-30">
+            <nav className="absolute bottom-0 inset-x-0 lg:hidden bg-white/95 backdrop-blur-md border-t border-slate-100 py-2.5 px-4 flex items-center justify-around z-30">
               <button
                 onClick={() => setActiveTab('home')}
                 className={`flex flex-col items-center gap-0.5 transition-all cursor-pointer ${
@@ -1918,6 +2036,31 @@ export default function App() {
                       className="mt-3 w-full py-1.5 bg-gradient-to-r from-[#46868e] to-indigo-600 hover:from-[#3a6f76] hover:to-indigo-700 text-white font-sans font-bold rounded-xl text-[10px] shadow-xs cursor-pointer text-center border-0"
                     >
                       Fund Rewards Pool (₱{donationPoolCurrent.toLocaleString()})
+                    </button>
+                  </div>
+
+                  {/* Section: Support Me by jaredsfdev */}
+                  <div className="bg-amber-50/70 border border-amber-250 p-4 rounded-2xl shrink-0">
+                    <div className="flex items-center gap-2 text-amber-900">
+                      <Heart size={15} className="text-amber-600 fill-amber-500 animate-pulse" />
+                      <span className="text-xs font-sans font-bold">Support Me</span>
+                    </div>
+                    <p className="text-slate-600 font-sans text-[11.5px] mt-1 leading-relaxed">
+                      If Tikling Assistant has made your route planning easier, please consider supporting the ongoing development. Thank you!
+                    </p>
+                    <button
+                      onClick={() => {
+                        setIsSidebarOpen(false);
+                        setTiklingAlert({
+                          show: true,
+                          title: 'Thank You for Supporting! 💖',
+                          message: 'Your support is deeply appreciated! Connecting with jaredsfdev keeps the server running and updates rolling out.',
+                          type: 'success'
+                        });
+                      }}
+                      className="mt-3 w-full py-1.5 bg-amber-500 hover:bg-amber-600 text-white font-sans font-bold rounded-xl text-[10px] shadow-xs cursor-pointer text-center border-0 transition-colors"
+                    >
+                      Buy Me a Coffee ☕
                     </button>
                   </div>
 
@@ -2090,9 +2233,15 @@ export default function App() {
                 </div>
 
                 {/* Sidebar Footer credit line */}
-                <div className="p-4 border-t border-slate-100 bg-slate-50 text-[9px] text-slate-400 font-mono flex items-center justify-between shrink-0">
-                  <span>Tiki Version 2.8</span>
-                  <span className="text-indigo-600 font-bold">Protected by Mascot</span>
+                <div className="p-4 border-t border-slate-100 bg-slate-50 text-[10px] text-slate-400 font-sans flex flex-col gap-1.5 shrink-0 text-left">
+                  <div className="flex items-center justify-between font-mono text-[9px]">
+                    <span>Tiki Version 2.8</span>
+                    <span className="text-indigo-600 font-bold">Mascot Protected</span>
+                  </div>
+                  <div className="border-t border-slate-200/60 pt-2 flex items-center justify-between text-[10px]">
+                    <span className="text-slate-500 font-medium">Developed by</span>
+                    <span className="text-indigo-600 font-extrabold hover:underline select-none">jaredsfdev</span>
+                  </div>
                 </div>
               </div>
             </>
