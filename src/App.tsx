@@ -39,7 +39,9 @@ import {
   Leaf,
   Train,
   Lock,
-  Map
+  Map,
+  Sun,
+  Moon
 } from 'lucide-react';
 import { CommuterRoute, AppStateMode, TabType, Waypoint, TransitMode } from './types';
 import InteractiveMap from './components/InteractiveMap';
@@ -829,22 +831,57 @@ export default function App() {
                 <span className="text-[11px] font-sans font-bold text-indigo-800">Tiki Assistant 🐦</span>
               </div>
 
-              <div className="relative">
+              <div className="flex items-center gap-2">
+                {/* Tiki Night Mode Toggle Button */}
                 <button
+                  type="button"
                   onClick={() => {
-                    setIsNotificationOpen(!isNotificationOpen);
-                    setBellCount(0);
+                    const nextMode = !isTikiNightMode;
+                    setIsTikiNightMode(nextMode);
+                    localStorage.setItem('tikling_night_mode', nextMode ? 'true' : 'false');
+                    setTiklingAlert({
+                      show: true,
+                      title: nextMode ? 'Under the Stars! ✨' : 'Good Morning! ☀️',
+                      message: nextMode 
+                        ? 'Cozy, low-light navigation active. Switched UI colors to deep midnight indigos and comfortable dark slates.' 
+                        : 'Switched back to warm daylight papers. Pleasant safe transits ahead!',
+                      type: 'success'
+                    });
                   }}
-                  className={`p-2 rounded-xl border transition-colors cursor-pointer ${isNotificationOpen ? 'bg-indigo-50 border-indigo-200 text-indigo-600' : 'text-slate-700 hover:text-indigo-600 bg-slate-50 border-slate-100'}`}
-                  title="Tiki bulletins feed"
+                  className={`p-2 rounded-xl border transition-colors cursor-pointer ${
+                    isTikiNightMode 
+                      ? 'bg-slate-800 border-slate-750 text-amber-400 hover:text-amber-300' 
+                      : 'bg-slate-50 border-slate-100 text-slate-700 hover:text-indigo-600 hover:bg-slate-100'
+                  }`}
+                  title={isTikiNightMode ? 'Switch to Light Mode' : 'Switch to Night Mode'}
                 >
-                  <Bell size={18} />
+                  {isTikiNightMode ? <Sun size={18} /> : <Moon size={18} />}
                 </button>
-                {bellCount > 0 && (
-                  <span className="absolute -top-1 -right-1 w-4 h-4 bg-rose-500 rounded-full text-[10px] text-white font-bold flex items-center justify-center animate-bounce select-none">
-                    {bellCount}
-                  </span>
-                )}
+
+                {/* Notification Bell */}
+                <div className="relative">
+                  <button
+                    onClick={() => {
+                      setIsNotificationOpen(!isNotificationOpen);
+                      setBellCount(0);
+                    }}
+                    className={`p-2 rounded-xl border transition-colors cursor-pointer ${
+                      isNotificationOpen 
+                        ? 'bg-indigo-50 border-indigo-200 text-indigo-600' 
+                        : isTikiNightMode 
+                          ? 'bg-slate-800 border-slate-750 text-slate-300 hover:text-white' 
+                          : 'text-slate-700 hover:text-indigo-600 bg-slate-50 border-slate-100'
+                    }`}
+                    title="Tiki bulletins feed"
+                  >
+                    <Bell size={18} />
+                  </button>
+                  {bellCount > 0 && (
+                    <span className="absolute -top-1 -right-1 w-4 h-4 bg-rose-500 rounded-full text-[10px] text-white font-bold flex items-center justify-center animate-bounce select-none">
+                      {bellCount}
+                    </span>
+                  )}
+                </div>
               </div>
             </div>
 

@@ -1,0 +1,24 @@
+{
+  "short_name": "Tikling",
+  "name": "Tikling - Commuter Route Planner",
+  "description": "A smart, friendly commuter route planner guided by the Tikling bird mascot.",
+  "icons": [
+    {
+      "src": "/src/assets/images/tikling_avatar_1781772190998.jpg",
+      "type": "image/jpeg",
+      "sizes": "192x192",
+      "purpose": "any"
+    },
+    {
+      "src": "/src/assets/images/tikling_avatar_1781772190998.jpg",
+      "type": "image/jpeg",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#f7f4ee",
+  "theme_color": "#46868e",
+  "display": "standalone",
+  "orientation": "portrait"
+}
